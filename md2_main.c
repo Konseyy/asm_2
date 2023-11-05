@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
   matrix_result = (int *)malloc(sizeof(int) * h_result * w_result);
 
   // call matmul
+  printf("%d %d\n", h1, w1);
   matmul(h1, w1, matrix1, h2, w2, matrix2, matrix_result);
   printf("program finished?\n");
   // free memory
