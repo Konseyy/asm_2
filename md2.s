@@ -11,7 +11,7 @@ matmul:
   ldr r0, f__a
 @ from stack pointer get first arg
 @ ldmfd sp!, {r1, r2}
-@ bl printf
+bl printf
 @ ldmfd sp!, {lr}
 // return
   mov lr, r4
@@ -20,4 +20,4 @@ matmul:
 @ w__a: .word width1
 f__a:   .word format
 .data
-format: .asciz "%d"
+format: .asciz "from assembly, %d\n"
