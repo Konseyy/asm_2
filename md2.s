@@ -8,11 +8,8 @@ matmul:
   stmia sp!, {lr, r0, r1}
   ldr r0, f__a
 @ from stack pointer get first arg
-  ldr r1, [sp, #4]!
-  bl printf
-  ldr r1, [sp, #4]!
-  bl printf
-  ldr lr, [sp, #4]!
+  ldmfd sp!, {r1, r2, lr}
+  printf
 // return
   bx lr
 @ h__a: .word height1
