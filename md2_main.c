@@ -35,11 +35,13 @@ int main(int argc, char *argv[])
 
   // print matrix
   printf("W1:%d H1:%d", w1, h1);
+  printf("\n");
   for (p = matrix1; p < matrix1 + h1 * w1; p++)
     printf("%d ", *p);
   printf("\n");
 
   printf("W2:%d H2:%d", w2, h2);
+  printf("\n");
   for (p = matrix2; p < matrix2 + h2 * w2; p++)
     printf("%d ", *p);
   printf("\n");
