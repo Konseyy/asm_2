@@ -14,6 +14,8 @@ matmul:
   ldr r1, [sp, #4]!
   bl printf
   ldr lr, [sp, #4]!
+  bx lr
+
 @ h__a: .word height1
 @ w__a: .word width1
 f__a:   .word format
