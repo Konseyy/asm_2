@@ -21,14 +21,14 @@ matmul:
   bl printf
 
   ldr r0, f__a @ load format string into r0
-  ldr r1, [sp, #4]! @ load original r0 into r1
+  ldr r1, [sp, #4]@ load original r0 into r1
 @ Stack: -
   bl printf
+  ldr lr, [sp, #4]! @ load original r0 into r1
 @ ldrfd sp!, {r1}
 @ bl printf
 @ ldmfd sp!, {lr}
 // return
-  mov lr, r1
   bx lr
 @ h__a: .word height1
 @ w__a: .word width1
