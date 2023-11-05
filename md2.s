@@ -10,7 +10,7 @@ matmul:
   ldr r0, f__a
 @ from stack pointer get first arg
   ldmfd sp!, {r1, r2}
-  printf
+  bl printf
   ldmfd sp!, {lr}
 // return
   bx lr
