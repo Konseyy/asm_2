@@ -4,8 +4,7 @@
 .type matmul, %function
 
 matmul:
-@ str lr, [sp, #-4]!
-  mov r4, lr
+  str lr, [sp, #-4]!
 @ sub sp, sp, #8
 @ stmia sp!, {r0, r1}
   str r0, [sp, #-4]! @ Stack: r0
@@ -29,7 +28,7 @@ matmul:
 @ bl printf
 @ ldmfd sp!, {lr}
 // return
-  mov lr, r4
+  mov lr, r1
   bx lr
 @ h__a: .word height1
 @ w__a: .word width1
