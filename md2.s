@@ -5,7 +5,8 @@
 
 matmul:
   sub sp, sp, #12
-  stmia sp!, {lr, r0, r1}
+  stmia sp!, {lr}
+  stmia sp!, {r0, r1}
   ldr r0, f__a
 @ from stack pointer get first arg
   ldmfd sp!, {r1, r2}
