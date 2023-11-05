@@ -8,15 +8,17 @@ matmul:
   mov r4, lr
 @ sub sp, sp, #8
 @ stmia sp!, {r0, r1}
-  str r0, [sp, #-4]! @
-  str r1, [sp, #-4]!
+  str r0, [sp, #-4]! @ Stack: r0
+  str r1, [sp, #-4]! @ Stack: r0, r1
 
-  ldr r0, f__a
-  ldr r1, [sp, #4]
+  ldr r0, f__a @ load format string into r0
+  ldr r1, [sp, #4]! @ load original r1 into r1
+@ Stack: r0
   bl printf
 
-  ldr r0, f__a
-  ldr r1, [sp, #8]
+  ldr r0, f__a @ load format string into r0
+  ldr r1, [sp, #4]! @ load original r0 into r1
+@ Stack: -
   bl printf
 @ ldrfd sp!, {r1}
 @ bl printf
