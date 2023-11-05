@@ -9,11 +9,11 @@ matmul:
   str r1, [sp, #-4]!
   ldr r0, f__a
 @ from stack pointer get first arg
-  ldr r1, [sp, #4]
+  ldr r1, [sp, #4]!
   bl printf
-  ldr r1, [sp, #8]
+  ldr r1, [sp, #4]!
   bl printf
-  ldr lr, [sp], #4
+  ldr lr, [sp, #4]!
 @ h__a: .word height1
 @ w__a: .word width1
 f__a:   .word format
