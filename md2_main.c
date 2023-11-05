@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
   int *matrix_result;
   int *p;
 
-  scanf("%d %d", &w1, &h1);
+  scanf("%d %d", &h1, &w1);
 
   // allocate memory for matrix
   matrix1 = (int *)malloc(sizeof(int) * h1 * w1);
@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
   for (p = matrix1; p < matrix1 + h1 * w1; p++)
     scanf("%d", p);
 
-  scanf("%d %d", &w2, &h2);
+  scanf("%d %d", &h2, &w2);
 
   // allocate memory for matrix
   matrix2 = (int *)malloc(sizeof(int) * h2 * w2);
