@@ -4,9 +4,9 @@
 .type matmul, %function
 
 matmul:
-  str lr, [sp, #4]!
-  str r0, [sp, #4]!
-  str r1, [sp, #4]!
+  str lr, [sp, #-4]!
+  str r0, [sp, #-4]!
+  str r1, [sp, #-4]!
   ldr r0, f__a
 @ from stack pointer get first arg
   ldr r1, [sp, #4]!
