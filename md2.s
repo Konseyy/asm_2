@@ -6,9 +6,9 @@
 matmul:
 @ str lr, [sp, #-4]!
   mov lr, r4
-  sub sp, sp, #8
-  stmia sp!, {r0, r1}
-  ldr r0, f__a
+  @ sub sp, sp, #8
+  @ stmia sp!, {r0, r1}
+  @ ldr r0, f__a
 @ from stack pointer get first arg
 @ ldmfd sp!, {r1, r2}
 @ bl printf
