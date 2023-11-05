@@ -10,8 +10,10 @@ matmul:
   stmia sp!, {r0, r1}
   ldr r0, f__a
 @ from stack pointer get first arg
-@ ldmfd sp!, {r1, r2}
-bl printf
+  ldmfd sp!, {r1}
+  bl printf
+  ldmfd sp!, {r1}
+  bl printf
 @ ldmfd sp!, {lr}
 // return
   mov lr, r4
