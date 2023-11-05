@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 
   // call matmul
   matmul(h1, w1, matrix1, h2, w2, matrix2, matrix_result);
-  printf("program finished?");
+  printf("program finished?\n");
   // free memory
   free(matrix1);
   free(matrix2);
