@@ -8,11 +8,13 @@ matmul:
   mov r4, lr
 @ sub sp, sp, #8
 @ stmia sp!, {r0, r1}
-  str r0, [sp, #-4]!
+  str r0, [sp, #-4]! @
   str r1, [sp, #-4]!
   ldr r0, f__a
 @ from stack pointer get first arg
   ldr r1, [sp, #4]
+  bl printf
+  ldr r1, [sp, #8]
   bl printf
 @ ldrfd sp!, {r1}
 @ bl printf
