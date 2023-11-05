@@ -11,12 +11,12 @@ matmul:
   str r1, [sp, #-4]! @ Stack: r0, r1
 
   ldr r0, f__a @ load format string into r0
-  ldr r1, [sp, #4]! @ load original r1 into r1
+  ldmfd sp!, {r1}@ load original r1 into r1
 @ Stack: r0
   bl printf
 
   ldr r0, f__a @ load format string into r0
-  ldr r1, [sp, #4] @ load original r0 into r1
+  ldr r1, [sp, #4]@ load original r0 into r1
 @ Stack: -
   bl printf
 
