@@ -4,9 +4,8 @@
 .type matmul, %function
 
 matmul:
-  str lr, [sp, #-4]!
-  str r0, [sp, #-4]!
-  str r1, [sp, #-4]!
+  sub sp, sp, #12
+  stmia sp!, {lr, r0, r1}
   ldr r0, f__a
 @ from stack pointer get first arg
   ldr r1, [sp, #4]!
@@ -14,8 +13,8 @@ matmul:
   ldr r1, [sp, #4]!
   bl printf
   ldr lr, [sp, #4]!
+// return
   bx lr
-
 @ h__a: .word height1
 @ w__a: .word width1
 f__a:   .word format
