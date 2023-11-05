@@ -30,24 +30,19 @@ int main(int argc, char *argv[])
 
   int w_result = w1;
   int h_result = h2;
+  if (w2 != h1)
+  {
+    // Incompatible matrices
+    free(matrix1);
+    free(matrix2);
+    exit(1);
+  }
   // allocate memory for matrix
   matrix_result = (int *)malloc(sizeof(int) * h_result * w_result);
 
-  // print matrix
-  printf("W1:%d H1:%d", w1, h1);
-  printf("\n");
-  for (p = matrix1; p < matrix1 + h1 * w1; p++)
-    printf("%d ", *p);
-  printf("\n");
-
-  printf("W2:%d H2:%d", w2, h2);
-  printf("\n");
-  for (p = matrix2; p < matrix2 + h2 * w2; p++)
-    printf("%d ", *p);
-  printf("\n");
-
   // call matmul
-
+  matmul(h1, w1, matrix1, h2, w2, matrix2, matrix_result);
+  printf("program finished?");
   // free memory
   free(matrix1);
   free(matrix2);
