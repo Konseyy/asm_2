@@ -30,5 +30,5 @@ matmul:
 f__1a:    .word format1
 f__2a:    .word format2
 .data
-format1:  .asciz "H: %d\n"
-format2:  .asciz "W: %d\n"
+format1:  .asciz "from assembly H: %d\n"
+format2:  .asciz "from assembly W: %d\n"
