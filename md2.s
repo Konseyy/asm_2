@@ -5,7 +5,7 @@
 
 matmul:
 @ str lr, [sp, #-4]!
-  mv lr, r4
+  mov lr, r4
   sub sp, sp, #8
   stmia sp!, {r0, r1}
   ldr r0, f__a
@@ -14,7 +14,7 @@ matmul:
 @ bl printf
 @ ldmfd sp!, {lr}
 // return
-  mv r4, lr
+  mov r4, lr
   bx lr
 @ h__a: .word height1
 @ w__a: .word width1
