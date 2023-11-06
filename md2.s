@@ -33,10 +33,10 @@ for_k:
   ldr r1, [sp, #24] @ load *m2 into r1
   ldr r2, [r0, #0] @ load m1[i][k] into r2
   ldr r3, [r1, #0] @ load m2[k][j] into r3
-  mul r2, r2, r3 @ m1[i][k] * m2[k][j]
+  mul r4, r2, r3 @ m1[i][k] * m2[k][j]
   ldr r0, [sp, #28] @ load *m3 into r0
   ldr r1, [r0, #0] @ load m3[i][j] into r1
-  add r2, r2, r1 @ m3[i][j] += m1[i][k] * m2[k][j]
+  add r2, r4, r1 @ m3[i][j] += m1[i][k] * m2[k][j]
   str r2, [r0, #0] @ store m3[i][j] into *m3
 @ End of multiplication
   add r7, r7, #1 @ k++
