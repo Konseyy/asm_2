@@ -42,8 +42,8 @@ int main(int argc, char *argv[])
 
   // call matmul
   printf("from c H1: %u\nfrom c W1: %u\n", h1, w1);
-  printf("Memory address 1 is: %lu\n", (unsigned long)matrix1);
   printf("from c H2: %u\nfrom c W2: %u\n", h2, w2);
+  printf("Memory address 1 is: %lu\n", (unsigned long)matrix1);
   printf("Memory address 2 is: %lu\n", (unsigned long)matrix2);
   printf("Memory address 3 is: %lu\n", (unsigned long)matrix_result);
 
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
   printf("program finished?\n ");
 
   int i;
-  for (i = 0; i < (sizeof(matrix_result) / sizeof(matrix_result[0])); i++)
+  for (i = 0; i < h_result * w_result; i++)
   {
     printf("%d\n", matrix_result[i]);
   }
