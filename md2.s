@@ -19,7 +19,7 @@ matmul:
 @ Stack: sp -> r1, lr
   bl printf
 
-  ldr lr, [sp, #8]@ load original r0 into r1
+  ldr lr, [sp, #-4]@ load original r0 into r1
 @ Stack: sp -> lr
   add sp, sp, #28 @ Stack: sp ->
 @ return
