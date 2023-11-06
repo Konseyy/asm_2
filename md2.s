@@ -16,14 +16,14 @@ matmul:
   mov r7, #0 @ k = 0
 for_i:
   cmp r5, r3 @ i < h2
-  bge end_for_i
+  ble end_for_i
   mov r6, #0 @ j = 0
   ldr r0, f__i
   mov r1, r5
   bl printf
 for_j:
   cmp r6, r4 @ j < w2
-  bge end_for_j
+  ble end_for_j
   mov r7, #0 @ k = 0
   ldr r0, f__j
   mov r1, r6
@@ -31,7 +31,7 @@ for_j:
 for_k:
   ldr r2, [sp, #4]
   cmp r7, r2 @ k < w1
-  bge end_for_k
+  ble end_for_k
 // Multiplication magic
   add r7, r7, #1 @ k++
   ldr r0, f__k
