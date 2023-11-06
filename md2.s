@@ -9,6 +9,10 @@ matmul:
 @ sp -> lr, h1, w1, *m1, h2, w2, *m2, *m3
 @ #0 = lr, #4 = h1, #8 = w1, #12 = *m1, #16 = h2, #20 = w2, #24 = *m2, #28 = *m3
 
+  ldr r0, f__2a
+  ldr r1, lr
+  bl printf
+
   ldr r0, f__1a @ load format string into r0
   ldr r1, [sp, #0]@ load original ro (first arg) into r1
 @ Stack: sp -> r0, r1, lr
