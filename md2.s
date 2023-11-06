@@ -13,6 +13,7 @@ matmul:
 @ ldr r0, [r5, #0] @ load m1[0] into r0
   ldr r1, [sp, #0]
   str r1, [r5, #0]
+  str #5, [r5, #4]
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   ldr lr, [sp, #16]@ load original lr into lr
 @ Stack: sp -> lr
