@@ -45,6 +45,7 @@ int main(int argc, char *argv[])
   // call matmul
   printf("from c H1: %u\nfrom c W1: %u\n", h1, w1);
   printf("from c H2: %u\nfrom c W2: %u\n", h2, w2);
+  printf("result matrix size: %u\n", h_result * w_result);
   printf("Memory address 1 is: %lu\n", (unsigned long)matrix1);
   printf("Memory address 2 is: %lu\n", (unsigned long)matrix2);
   printf("Memory address 3 is: %lu\n", (unsigned long)matrix_result);
