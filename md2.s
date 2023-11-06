@@ -11,7 +11,7 @@ matmul:
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   ldr r6, [sp, #8] @ load *m1 into r5
   ldr r0, f__1a
-  ldr r1, r6
+  mov r1, r6
   bl printf
   ldr r5, =r6
   ldr r0, [r5], #0 @ load m1[0] into r0
