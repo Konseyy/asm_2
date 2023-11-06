@@ -5,8 +5,9 @@
 
 @ int matmul(int h1, int w1, int *m1, int h2, int w2, int *m2, int *m3);
 matmul:
-  sub sp, sp, #28
-  stmfd sp!, {lr, r0, r1, r2, r3}
+  stmfd sp!, {lr}
+  sub sp, sp, #24
+  stmia sp, {r0-r3}
 @ sp -> lr, h1, w1, *m1, h2, w2, *m2, *m3
 @ #0 = lr, #4 = h1, #8 = w1, #12 = *m1, #16 = h2, #20 = w2, #24 = *m2, #28 = *m3
 
