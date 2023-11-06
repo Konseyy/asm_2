@@ -44,6 +44,14 @@ matmul:
   ldr r1, [sp, #28]
   bl printf
 
+  ldr r0, f__1a
+  ldr r1, [sp, #32]
+  bl printf
+
+  ldr r0, f__2a
+  ldr r1, [sp, #36]
+  bl printf
+
   ldr lr, [sp, #-4]@ load original r0 into r1
 @ Stack: sp -> lr
   add sp, sp, #28 @ Stack: sp ->
