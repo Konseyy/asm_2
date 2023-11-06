@@ -39,6 +39,8 @@ int main(int argc, char *argv[])
   }
   // allocate memory for matrix
   matrix_result = (int *)malloc(sizeof(int) * h_result * w_result);
+  for (p = matrix_result; p < matrix_result + h_result * w_result; p++)
+    *p = 0;
 
   // call matmul
   printf("from c H1: %u\nfrom c W1: %u\n", h1, w1);
