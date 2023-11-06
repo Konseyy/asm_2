@@ -5,7 +5,7 @@
 
 matmul:
   ldr r0, f__1a
-  ldr r1, [sp, #0]
+  ldr r1, [sp, #4]
   bl printf
   str lr, [sp, #-4]! @ Stack: sp -> lr
 @ sub sp, sp, #8
