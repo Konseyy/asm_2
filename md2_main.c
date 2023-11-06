@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
   printf("Memory address 1 is: 0x%x\n", matrix1);
   printf("from c H2: %d\nfrom c W2: %d\n", h2, w2);
   printf("Memory address 2 is: 0x%x\n", matrix2);
-  printf("Memory address 3 is: 0x%x\n", matrix3);
+  printf("Memory address 3 is: 0x%x\n", matrix_result);
 
   matmul(h1, w1, matrix1, h2, w2, matrix2, matrix_result);
   printf("program finished?\n");
