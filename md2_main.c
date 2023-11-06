@@ -39,8 +39,8 @@ int main(int argc, char *argv[])
   }
   // allocate memory for matrix
   matrix_result = (int *)malloc(sizeof(int) * h_result * w_result);
-  for (p = matrix_result; p < matrix_result + h_result * w_result; p++)
-    *p = 0;
+  // for (p = matrix_result; p < matrix_result + h_result * w_result; p++)
+  //   *p = 0;
 
   // call matmul
   printf("from c H1: %u\nfrom c W1: %u\n", h1, w1);
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
   printf("Memory address 3 is: %lu\n", (unsigned long)matrix_result);
 
   matmul(h1, w1, matrix1, h2, w2, matrix2, matrix_result);
-  printf("program finished?\n ");
+  printf("program finished?\n");
 
   int i;
   for (i = 0; i < h_result * w_result; i++)
