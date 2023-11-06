@@ -42,10 +42,10 @@ int main(int argc, char *argv[])
 
   // call matmul
   printf("from c H1: %u\nfrom c W1: %u\n", h1, w1);
-  printf("Memory address 1 is: 0x%lu\n", (unsigned long)matrix1);
+  printf("Memory address 1 is: %lu\n", (unsigned long)matrix1);
   printf("from c H2: %u\nfrom c W2: %u\n", h2, w2);
-  printf("Memory address 2 is: 0x%lu\n", (unsigned long)matrix2);
-  printf("Memory address 3 is: 0x%lu\n", (unsigned long)matrix_result);
+  printf("Memory address 2 is: %lu\n", (unsigned long)matrix2);
+  printf("Memory address 3 is: %lu\n", (unsigned long)matrix_result);
 
   matmul(h1, w1, matrix1, h2, w2, matrix2, matrix_result);
   printf("program finished?\n");
