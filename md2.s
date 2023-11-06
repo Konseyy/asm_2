@@ -7,45 +7,13 @@
 matmul:
   stmfd sp!, {r0, r1, r2, r3, lr}
 @ sp -> r0, r1, r2, r3, lr
-@ #0 = h1, #4 = w1, #8 = *m1, #12 = h2, #16 = LR, #20 = w2, #24 = *m2, #28 = *m3
-
-  ldr r0, f__1a @ load format string into r0
-  ldr r1, [sp, #0]@ load original ro (first arg) into r1
-@ Stack: sp -> r0, r1, lr
-  bl printf
-
-  ldr r0, f__2a @ load format string into r0
-  ldr r1, [sp, #4]@ load original r1 (second arg) into r1
-@ Stack: sp -> r1, lr
-  bl printf
-
-  ldr r0, f__1a
-  ldr r1, [sp, #8]
-  bl printf
-
-  ldr r0, f__2a
-  ldr r1, [sp, #12]
-  bl printf
-
-  ldr r0, f__1a
-  ldr r1, [sp, #16]
-  bl printf
-
-  ldr r0, f__2a
-  ldr r1, [sp, #20]
-  bl printf
-
-  ldr r0, f__1a
-  ldr r1, [sp, #24]
-  bl printf
-
-  ldr r0, f__2a
-  ldr r1, [sp, #28]
-  bl printf
-
-  ldr lr, [sp, #16]@ load original r0 into r1
+@ # 0 = h1, #4 = w1, #8 = *m1, #12 = h2, #16 = LR, #20 = w2, #24 = *m2, #28 = *m3
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  mov [sp, #8], [sp, #0]
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  ldr lr, [sp, #16]@ load original lr into lr
 @ Stack: sp -> lr
-  add sp, sp, #28 @ Stack: sp ->
+  add sp, sp, #28 @ Clear the stack
 @ return
   bx lr
 @ h__a: .word height1

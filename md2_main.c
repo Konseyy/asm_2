@@ -28,9 +28,9 @@ int main(int argc, char *argv[])
   for (p = matrix2; p < matrix2 + h2 * w2; p++)
     scanf("%d", p);
 
-  int w_result = w1;
-  int h_result = h2;
-  if (w2 != h1)
+  int w_result = w2;
+  int h_result = h1;
+  if (w1 != h2)
   {
     // Incompatible matrices
     free(matrix1);
@@ -48,7 +48,13 @@ int main(int argc, char *argv[])
   printf("Memory address 3 is: %lu\n", (unsigned long)matrix_result);
 
   matmul(h1, w1, matrix1, h2, w2, matrix2, matrix_result);
-  printf("program finished?\n");
+  printf("program finished?\n ");
+
+  int i;
+  for (i = 0; i < (sizeof(matrix_result) / sizeof(matrix_result[0])); i++)
+  {
+    printf("%d\n", matrix_result[i]);
+  }
   // free memory
   free(matrix1);
   free(matrix2);
