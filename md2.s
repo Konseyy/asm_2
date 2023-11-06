@@ -13,7 +13,7 @@ matmul:
   ldr r0, f__1a
   mov r1, r6
   bl printf
-  ldr r5, =r6
+  @ ldr r5, =r6
   ldr r0, [r5], #0 @ load m1[0] into r0
   ldr r1, [sp, #0]
   str r1, [r5], #0
