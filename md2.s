@@ -19,26 +19,27 @@ for_i:
   cmp r5, r3 @ i < h2
   bge end_for_i
   mov r6, #0 @ j = 0
-  ldr r0, f__i
-  mov r1, r5
-  bl printf
 for_j:
   ldr r4, [sp, #20] @ load w2 into r4
   cmp r6, r4 @ j < w2
   bge end_for_j
   mov r7, #0 @ k = 0
-  ldr r0, f__j
-  mov r1, r6
-  bl printf
 for_k:
   ldr r2, [sp, #4] @ load w1 into r2
   cmp r7, r2 @ k < w1
   bge end_for_k
-// Multiplication magic
+@ Multiplication happens here
+  ldr r0, [sp, #8] @ load *m1 into r0
+  ldr r1, [sp, #24] @ load *m2 into r1
+  ldr r2, [r0, #0] @ load m1[i][k] into r2
+  ldr r3, [r1, #0] @ load m2[k][j] into r3
+  mul r2, r2, r3 @ m1[i][k] * m2[k][j]
+  ldr r0, [sp, #28] @ load *m3 into r0
+  ldr r1, [r0, #0] @ load m3[i][j] into r1
+  add r2, r2, r1 @ m3[i][j] += m1[i][k] * m2[k][j]
+  str r2, [r0, #0] @ store m3[i][j] into *m3
+@ End of multiplication
   add r7, r7, #1 @ k++
-  ldr r0, f__k
-  mov r1, r7
-  bl printf
   b for_k
 end_for_k:
   add r6, r6, #1 @ j++
