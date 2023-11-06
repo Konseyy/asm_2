@@ -10,7 +10,7 @@ matmul:
 @ #0 = lr, #4 = h1, #8 = w1, #12 = *m1, #16 = h2, #20 = w2, #24 = *m2, #28 = *m3
 
   ldr r0, f__2a
-  ldr r1, lr
+  mov r1, lr
   bl printf
 
   ldr r0, f__1a @ load format string into r0
