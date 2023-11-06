@@ -18,13 +18,13 @@ for_i:
   cmp r5, r3 @ i < h2
   bge end_for_i
   mov r6, #0 @ j = 0
-  move r0, f__i
+  ldr r0, f__i
   bl printf
 for_j:
   cmp r6, r4 @ j < w2
   bge end_for_j
   mov r7, #0 @ k = 0
-  move r0, f__j
+  ldr r0, f__j
   bl printf
 for_k:
   ldr r2, [sp, #4]
@@ -32,7 +32,7 @@ for_k:
   bge end_for_k
 // Multiplication magic
   add r7, r7, #1 @ k++
-  mov r0, f__k
+  ldr r0, f__k
   bl printf
   b for_k
 end_for_k:
