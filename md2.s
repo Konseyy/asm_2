@@ -33,9 +33,9 @@ for_k:
 @ Multiplication happens here
   ldr r0, [sp, #8] @ load *m1 into r0
   ldr r1, [sp, #60] @ load *m2 into r1
-  stmfd sp!, {r6}
-  ldmfd sp!, {r6}
-  mul r6, r5, r2 @ i * w1
+  @ stmfd sp!, {r6}
+  @ ldmfd sp!, {r6}
+  @ mul r6, r5, r2 @ i * w1
   ldr r2, [r0, #0] @ load m1[i][k] into r2
   ldr r3, [r1, #0] @ load m2[k][j] into r3
   mul r4, r2, r3 @ m1[i][k] * m2[k][j]
