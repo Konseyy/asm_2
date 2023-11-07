@@ -48,8 +48,7 @@ for_k:
   @ ldr r0, f__j
   @ mov r1, r3
   @ bl printf
-  ldr r4, #1
-  mul r11, r4, r2
+  mul r11, r2, r3
 @ mul r4, r2, r3 @ m1[i][k] * m2[k][j]
 @ ldr r0, [sp, #64] @ load *m3 into r0
 @ mul r8, r5, r4 @ i * w2
