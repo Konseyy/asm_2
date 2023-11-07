@@ -48,7 +48,9 @@ int main(int argc, char *argv[])
   {
     for (j = 0; j < w_result; j++)
     {
-      printf("%d ", matrix_result[i * w_result + j]);
+      printf("%d", matrix_result[i * w_result + j]);
+      if (j != w_result - 1)
+        printf(" ");
     }
     printf("\n");
   }
