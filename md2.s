@@ -32,9 +32,10 @@ for_k:
   bge end_for_k
 @ Multiplication happens here
   mul r8, r5, r2 @ i * w1
-  mul r8, r8, #4
+  mov r10, #4
+  mul r8, r8, r10
   mov r9, r7
-  mul r9, r9, #4
+  mul r9, r9, r10
   add r8, r8, r9 @ i * w1 + k
   ldr r0, [sp, #8] @ load *m1 into r0
   ldr r2, [r0, r8]@ load m1[i][k] into r2
@@ -42,7 +43,7 @@ for_k:
   mov r1, r2
   bl printf
   mul r8, r6, r4 @ j * w2
-  mul r8, r8, #4
+  mul r8, r8, r10
   add r8, r8, r9 @ j * w2 + k
   ldr r1, [sp, #60] @ load *m2 into r1
   ldr r3, [r1, r8]@ load m2[k][j] into r3
