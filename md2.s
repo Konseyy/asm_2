@@ -40,7 +40,7 @@ for_k:
   add r8, r8, r7 @ j * w2 + k
   ldr r3, [r1, r8] @ load m2[k][j] into r3
   mul r4, r2, r3 @ m1[i][k] * m2[k][j]
-  ldr r0, [sp, #64] @ load *m3 into r0
+  @ ldr r0, [sp, #64] @ load *m3 into r0
   @ mul r8, r5, r4 @ i * w2
   @ add r8, r8, r6 @ i * w2 + j
   @ ldr r1, [r0, r8] @ load m3[i][j] into r1
