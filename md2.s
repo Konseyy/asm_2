@@ -42,7 +42,7 @@ for_k:
   bl printf
   mov r10, r6, LSL#2 @ j * 4
   mul r8, r10, r4 @ j * 4 * w2 
-  add r8, r8, r19@ j * 4 * w2 + k * 4
+  add r8, r8, r9@ j * 4 * w2 + k * 4
   ldr r1, [sp, #60] @ load *m2 into r1
   ldr r3, [r1, r8] @ load m2[k][j] into r3
   ldr r0, f__j
