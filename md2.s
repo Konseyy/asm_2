@@ -13,13 +13,6 @@ matmul:
 @ #24=R6 #28=R7 #32=R8 #36=R9 #40=R10 #44=R11 #48=R12
 @ #52 = LR, #56 = w2, #60 = *m2, #64 = *m3
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  ldr r0, f__i
-  ldr r1, [sp, #8]
-  bl printf
-  ldr r0, f__j
-  ldr r1, [sp, #60]
-  bl printf
-
   mov r5, #0 @ i = 0
   mov r6, #0 @ j = 0
   mov r7, #0 @ k = 0
@@ -38,14 +31,20 @@ for_k:
   cmp r7, r2 @ k < w1
   bge end_for_k
 @ Multiplication happens here
-  ldr r0, [sp, #8] @ load *m1 into r0
-  ldr r1, [sp, #60] @ load *m2 into r1
   mul r8, r5, r2 @ i * w1
   add r8, r8, r7 @ i * w1 + k
+  ldr r0, [sp, #8] @ load *m1 into r0
   ldr r2, [r0, r8]@ load m1[i][k] into r2
+  ldr r0, f__i
+  mov r1, r2
+  bl printf
   mul r8, r6, r4 @ j * w2
   add r8, r8, r7 @ j * w2 + k
+  ldr r1, [sp, #60] @ load *m2 into r1
   ldr r3, [r1, r8]@ load m2[k][j] into r3
+  ldr r0, f__j
+  mov r1, r3
+  bl printf
 @ mul r4, r2, r3 @ m1[i][k] * m2[k][j]
 @ ldr r0, [sp, #64] @ load *m3 into r0
 @ mul r8, r5, r4 @ i * w2
