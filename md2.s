@@ -17,8 +17,8 @@ matmul:
   mov r6, #0 @ j = 0
   mov r7, #0 @ k = 0
 for_i:
-  ldr r3, [sp, #12]@ load h2 into r3
-  cmp r5, r3 @ i < h2
+  ldr r3, [sp, #0]@ load h1 into r3
+  cmp r5, r3 @ i < h1
   bge end_for_i
   mov r6, #0 @ j = 0
 for_j:
@@ -27,8 +27,8 @@ for_j:
   bge end_for_j
   mov r7, #0 @ k = 0
 for_k:
-  ldr r2, [sp, #4]@ load w1 into r2
-  cmp r7, r2 @ k < w1
+  ldr r2, [sp, #12]@ load h2 into r2
+  cmp r7, r2 @ k < h2
   bge end_for_k
 @ Multiplication happens here
   mov r10, r5, LSL#2 @ i * 4
@@ -40,9 +40,9 @@ for_k:
   ldr r0, f__i
   mov r1, r2
   bl printf
+  mul r8, r9, r4 @ j * 4 * w2 
   mov r10, r6, LSL#2 @ j * 4
-  mul r8, r10, r4 @ j * 4 * w2 
-  add r8, r8, r9@ j * 4 * w2 + k * 4
+  add r8, r8, r10@ j * 4 * w2 + k * 4
   ldr r1, [sp, #60] @ load *m2 into r1
   ldr r3, [r1, r8] @ load m2[k][j] into r3
   ldr r0, f__j
