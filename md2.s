@@ -42,7 +42,7 @@ for_k:
   ldr r0, [sp, #64] @ load *m3 into r0
   ldr r1, [r0, #0] @ load m3[i][j] into r1
   add r2, r4, r1 @ m3[i][j] += m1[i][k] * m2[k][j]
-  str r2, [r0, #0]@ store m3[i][j] into *m3
+  str r2, [r0, #0] @ store m3[i][j] into *m3
 @ End of multiplication
   add r7, r7, #1 @ k++
   b for_k
@@ -54,7 +54,6 @@ end_for_j:
   b for_i
 end_for_i:
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  ldmfd sp!, {lr}
   ldmfd sp!, {r0-r12, lr}
 @ return
   bx lr
