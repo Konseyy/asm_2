@@ -45,7 +45,7 @@ for_k:
   add r8, r8, r6 @ i * w2 + j
   ldr r1, [r0, r8] @ load m3[i][j] into r1
   add r2, r4, r1 @ m3[i][j] += m1[i][k] * m2[k][j]
-  str r2, [r0, r8] @ store m3[i][j] into *m3
+  @ str r2, [r0, r8] @ store m3[i][j] into *m3
 @ End of multiplication
   add r7, r7, #1 @ k++
   b for_k
