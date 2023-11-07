@@ -7,7 +7,7 @@
 
 @ int matmul(int h1, int w1, int *m1, int h2, int w2, int *m2, int *m3);
 matmul:
-  stmfd sp!, {r0-lr}
+  stmfd sp!, {r0-r12, lr}
 @ sp -> r0, r1, r2, r3, lr
 @ # 0 = h1, #4 = w1, #8 = *m1, #12 = h2, #16 = LR, #20 = w2, #24 = *m2, #28 = *m3
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -39,7 +39,7 @@ for_k:
   ldr r0, [sp, #28] @ load *m3 into r0
   ldr r1, [r0, #0] @ load m3[i][j] into r1
   add r2, r4, r1 @ m3[i][j] += m1[i][k] * m2[k][j]
-  str r2, [r0, #0] @ store m3[i][j] into *m3
+  str r2, [r0, #0]@ store m3[i][j] into *m3
 @ End of multiplication
   add r7, r7, #1 @ k++
   b for_k
