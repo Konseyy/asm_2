@@ -31,21 +31,18 @@ for_k:
   cmp r7, r2 @ k < w1
   bge end_for_k
 @ Multiplication happens here
-  mul r8, r5, r2 @ i * w1
-  mul r8, r8, LSL#2
-  mov r9, r7
-  mul r9, r9, LSL#2
-  add r8, r8, r9 @ i * w1 + k
+  mul r8, r5, r2, LSL#2 @ i * w1 * 4
+  mov r9, r7, LSL#2
+  add r8, r8, r9 @ i * w1 * 4 + k * 4
   ldr r0, [sp, #8] @ load *m1 into r0
   ldr r2, [r0, r8] @ load m1[i][k] into r2
   ldr r0, f__i
   mov r1, r2
   bl printf
-  mul r8, r6, r4 @ j * w2
-  mul r8, r8, LSL#2
-  add r8, r8, r9 @ j * w2 + k
-  ldr r1, [sp, #60]@ load *m2 into r1
-  ldr r3, [r1, r8]@ load m2[k][j] into r3
+  mul r8, r6, r4, LSL#2 @ j * w2 * 4
+  add r8, r8, r9, LSL#2 @ j * w2 + k * 4
+  ldr r1, [sp, #60] @ load *m2 into r1
+  ldr r3, [r1, r8] @ load m2[k][j] into r3
   ldr r0, f__j
   mov r1, r3
   bl printf
