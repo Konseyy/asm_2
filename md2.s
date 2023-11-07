@@ -7,8 +7,8 @@
 
 @ int matmul(int h1, int w1, int *m1, int h2, int w2, int *m2, int *m3);
 matmul:
-  stmfd sp!, {r0-r12}
   stmfd sp!, {lr}
+  stmfd sp!, {r0-r12}
 @ sp -> r0, r1, r2, r3, r4, r5 ,r6 ,r7, r8, r9, r10, r11, r12, lr
 @ # 0 = h1, #4 = w1, #8 = *m1, #12 = h2, #16=R4 #20=R5
 @ #24=R6 #28=R7 #32=R8 #36=R9 #40=R10 #44=R11 #48=R12
