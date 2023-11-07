@@ -23,7 +23,7 @@ for_i:
   bge end_for_i
   mov r6, #0 @ j = 0
 for_j:
-  ldr r4, [sp, #20]@ load w2 into r4
+  ldr r4, [sp, #56]@ load w2 into r4
   cmp r6, r4 @ j < w2
   bge end_for_j
   mov r7, #0 @ k = 0
@@ -33,13 +33,13 @@ for_k:
   bge end_for_k
 @ Multiplication happens here
   ldr r0, [sp, #8] @ load *m1 into r0
-  ldr r1, [sp, #24] @ load *m2 into r1
+  ldr r1, [sp, #60] @ load *m2 into r1
   stmfd sp!, {r6}
   mul r6, r5, r2 @ i * w1
   ldr r2, [r0, #0] @ load m1[i][k] into r2
   ldr r3, [r1, #0] @ load m2[k][j] into r3
   mul r4, r2, r3 @ m1[i][k] * m2[k][j]
-  ldr r0, [sp, #28] @ load *m3 into r0
+  ldr r0, [sp, #64] @ load *m3 into r0
   ldr r1, [r0, #0] @ load m3[i][j] into r1
   add r2, r4, r1 @ m3[i][j] += m1[i][k] * m2[k][j]
   str r2, [r0, #0]@ store m3[i][j] into *m3
