@@ -45,9 +45,9 @@ for_k:
   add r8, r8, r10@ j * 4 * w2 + k * 4
   ldr r1, [sp, #60] @ load *m2 into r1
   ldr r3, [r1, r8] @ load m2[k][j] into r3
-  ldr r0, f__j
-  mov r1, r3
-  bl printf
+  @ ldr r0, f__j
+  @ mov r1, r3
+  @ bl printf
 @ mul r4, r2, r3 @ m1[i][k] * m2[k][j]
 @ ldr r0, [sp, #64] @ load *m3 into r0
 @ mul r8, r5, r4 @ i * w2
