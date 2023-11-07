@@ -33,16 +33,19 @@ for_k:
 @ Multiplication happens here
   ldr r0, [sp, #8] @ load *m1 into r0
   ldr r1, [sp, #60] @ load *m2 into r1
-  @ stmfd sp!, {r6}
-  @ ldmfd sp!, {r6}
-  @ mul r6, r5, r2 @ i * w1
-  ldr r2, [r0, #0] @ load m1[i][k] into r2
-  ldr r3, [r1, #0] @ load m2[k][j] into r3
+  mul r8, r5, r2 @ i * w1
+  add r8, r8, r7 @ i * w1 + k
+  ldr r2, [r0, r8] @ load m1[i][k] into r2
+  mul r8, r6, r4 @ j * w2
+  add r8, r8, r7 @ j * w2 + k
+  ldr r3, [r1, r8] @ load m2[k][j] into r3
   mul r4, r2, r3 @ m1[i][k] * m2[k][j]
   ldr r0, [sp, #64] @ load *m3 into r0
-  ldr r1, [r0, #0] @ load m3[i][j] into r1
+  mul r8, r5, r4 @ i * w2
+  add r8, r8, r6 @ i * w2 + j
+  ldr r1, [r0, r8] @ load m3[i][j] into r1
   add r2, r4, r1 @ m3[i][j] += m1[i][k] * m2[k][j]
-  str r2, [r0, #0] @ store m3[i][j] into *m3
+  str r2, [r0, r8] @ store m3[i][j] into *m3
 @ End of multiplication
   add r7, r7, #1 @ k++
   b for_k
